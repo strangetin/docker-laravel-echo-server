@@ -3,7 +3,7 @@ set -e
 
 # laravel-echo-server init
 if [[ "$1" == 'init' ]]; then
-    set -- laravel-echo-server "$@"
+    set -- strangetin-echo-server "$@"
 fi
 
 if [ "$1" == 'start' ] && [ -f '/app/laravel-echo-server.lock' ]; then
@@ -31,12 +31,12 @@ if [[ "$1" == 'start' ]] || [[ "$1" == 'client:add' ]] || [[ "$1" == 'client:rem
         # Remove password config if it is empty
         sed -i "s|\"password\": \"\",||i" /app/laravel-echo-server.json
     fi
-    set -- laravel-echo-server "$@"
+    set -- strangetin-echo-server "$@"
 fi
 
 # first arg is `-f` or `--some-option`
 if [[ "${1#-}" != "$1" ]]; then
-	set -- laravel-echo-server "$@"
+	set -- strangetin-echo-server "$@"
 fi
 
 exec "$@"
